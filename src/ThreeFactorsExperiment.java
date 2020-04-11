@@ -30,7 +30,7 @@ public class ThreeFactorsExperiment {
 
     // Метод для відображення матриці планування ПФЕ
     public void printMatrixOfPlanning() {
-        System.out.printf("%-12s\t%-12s\t%-12s\t%-12s\t%-12s\t%-12s\t%-12s\t%-12s\t%-12s\t%-12s\t",
+        System.out.printf("%-8s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%-8s%-8s",
                 "x1", "x2","x3","x1x2","x1x3","x2x3","x1x2x3", "x1^2", "x2^2", "x3^2");
         for (int i = 0; i < m; i++) {
             System.out.printf("Y%-5d", i + 1);
@@ -39,12 +39,12 @@ public class ThreeFactorsExperiment {
         System.out.println();
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < x.length; j++) {
-                System.out.printf("%-8.3f\t\t", x[j][i]);
+                System.out.printf("%-5.2f\t", x[j][i]);
             }
             for (int j = 0; j < m; j++) {
                 System.out.printf("%-6d",y[i][j]);
             }
-            System.out.printf("%5.3f\n", Yavg[i]);
+            System.out.printf("%5.2f\n", Yavg[i]);
         }
         System.out.println("========================================================================================");
     }
@@ -258,7 +258,7 @@ public class ThreeFactorsExperiment {
         System.out.println("=> A quantity of significant coefficients d = "+d);
 
         // Скореговане рівняння регресії з ефектом взаємодії та квадратними членами
-        System.out.printf("\nThe adjusted equation of regression with interaction effect: " +
+        System.out.printf("\nThe adjusted equation of regression with interaction effect and square members:\n" +
                 "y = %+f%+f*X1%+f*X2%+f*X3%+f*X1X2%+f*X1X3" +
                 "%+f*X2X3%+f*X1X2X3%+f*X1^2%+f*X2^2%+f*X3^2\n", b[0], b[1], b[2], b[3], b[4], b[5], b[6],
                 b[7], b[8], b[9], b[10]);
